@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Legitimate Tower Defense</title>
+		
+		<style type="text/css">
+			html,
+			body {
+				margin: 0;
+				border: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background: black;
+			}
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+		<script type="text/javascript" src="ruffle/ruffle.js"></script>
+		<script type="text/javascript">
+			var aspectRatio = 480 / 660;
+			window.onload = function () {
+				var player = document.querySelector('embed') || document.querySelector('ruffle-embed');
+				window.onresize = function () {
+					if (window.innerWidth / window.innerHeight > aspectRatio) {
+						player.style.height = window.innerHeight + 'px';
+						player.style.width = (window.innerHeight * aspectRatio) + 'px';
+					} else {
+						player.style.width = window.innerWidth + 'px';
+						player.style.height = (window.innerWidth / aspectRatio) + 'px';
+					}
+				};
+				window.onresize();
+			};
+		</script>
+	</head>
+	<body>
+		<embed src="ltd.swf" wmode="tranparent" />
+	</body>
+</html>
